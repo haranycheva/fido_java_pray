@@ -4,16 +4,16 @@ A Spring Boot RESTful web service for creating, reading, updating, deleting, and
 
 # Getting Started
 
-1. Clone the repository
+## 1. Clone the repository
 
 `git clone https://github.com/haranycheva/fido_java_pray`
 
 `cd fido_java_pray`
 
 
-2. Build the project
+## 2. Build the project
 
-## Environment Setup
+### Environment Setup
 
 Before running the application, set up the required environment variables or create an `application-local.properties` file in `src/main/resources/`:
 
@@ -25,13 +25,15 @@ DB_PASSWORD=<YOUR_DB_PASSWORD>
 -- Local development options
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
+```
 
 
-## Build the project
+### Build the project
+
 `./mvnw clean package -DskipTests`
 
 
-3. Run the application
+## 3. Run the application
 
 `./mvnw spring-boot:run`
 
