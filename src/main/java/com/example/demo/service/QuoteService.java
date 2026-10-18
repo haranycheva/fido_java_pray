@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.dto.CreateQuoteRequest;
 import com.example.demo.entity.Quote;
 import com.example.demo.repository.QuoteRepository;
 
@@ -19,7 +20,8 @@ public class QuoteService {
         this.quoteRepository = quoteRepository;
     }
 
-    public Quote createQuote(Quote quote) {
+    public Quote createQuote(CreateQuoteRequest request) {
+        Quote quote = new Quote(request.getText(), request.getAuthor());
         return quoteRepository.save(quote);
     }
 
@@ -42,7 +44,7 @@ public class QuoteService {
         return false;
     }
 
-    public Quote updateQuote(Long id, Quote updatedQuote) {
+    public Quote updateQuote(Long id, CreateQuoteRequest updatedQuote) {
         Optional<Quote> optionalQuote = quoteRepository.findById(id);
 
         if (optionalQuote.isPresent()) {
