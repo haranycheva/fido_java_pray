@@ -6,18 +6,19 @@ A Spring Boot RESTful web service for creating, reading, updating, deleting, and
 
 1. Clone the repository
 
-git clone https://github.com/your-username/quotes-api.git
-cd quotes-api
+`git clone https://github.com/haranycheva/fido_java_pray`
+
+`cd fido_java_pray`
 
 
 2. Build the project
 
-./mvnw clean package -DskipTests
+`./mvnw clean package -DskipTests`
 
 
 3. Run the application
 
-./mvnw spring-boot:run
+`./mvnw spring-boot:run`
 
 
 The application will start on http://localhost:8080.
