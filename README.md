@@ -1,3 +1,7 @@
+## Project info
+
+A Spring Boot RESTful web service for creating, reading, updating, deleting, and searching quotes with pagination, validation, and Swagger OpenAPI 3 documentation.
+
 ## Getting Started
 
 1. Clone the repository
@@ -18,7 +22,7 @@ cd quotes-api
 
 The application will start on http://localhost:8080.
 
-📖 API Documentation (Swagger UI)
+## API Documentation (Swagger UI)
 
 Once the application is running, access the interactive Swagger documentation in your browser:
 
