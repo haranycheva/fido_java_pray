@@ -21,6 +21,8 @@ import com.example.demo.repository.QuoteRepository;
 import com.example.demo.service.QuoteService;
 
 import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.PutMapping;
+
 
 @RestController
 @RequestMapping("/quotes")
@@ -59,6 +61,16 @@ public class QuoteController {
         boolean isDeleted = quoteService.deleteQuote(id);
         if (isDeleted) {
             return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Quote> putMethodName(@PathVariable Long id, @Valid @RequestBody Quote toUpdate) {
+        Quote updatedQuote = quoteService.updateQuote(id, toUpdate);
+        if (updatedQuote != null) {
+            return ResponseEntity.ok(updatedQuote);
         } else {
             return ResponseEntity.notFound().build();
         }

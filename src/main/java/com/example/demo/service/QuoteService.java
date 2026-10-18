@@ -3,16 +3,17 @@ package com.example.demo.service;
 import com.example.demo.entity.Quote;
 import com.example.demo.repository.QuoteRepository;
 
+import java.util.Optional;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import org.springframework.stereotype.Service;
 
-@Service 
+@Service
 public class QuoteService {
 
     private final QuoteRepository quoteRepository;
-
 
     public QuoteService(QuoteRepository quoteRepository) {
         this.quoteRepository = quoteRepository;
@@ -32,12 +33,25 @@ public class QuoteService {
     public Quote getQuoteById(Long id) {
         return quoteRepository.findById(id).orElse(null);
     }
-    
+
     public boolean deleteQuote(Long id) {
         if (quoteRepository.existsById(id)) {
             quoteRepository.deleteById(id);
             return true;
         }
         return false;
+    }
+
+    public Quote updateQuote(Long id, Quote updatedQuote) {
+        Optional<Quote> optionalQuote = quoteRepository.findById(id);
+
+        if (optionalQuote.isPresent()) {
+            Quote existingQuote = optionalQuote.get();
+            existingQuote.setAuthor(updatedQuote.getAuthor());
+            existingQuote.setText(updatedQuote.getText());
+            return quoteRepository.save(existingQuote);
+        } else {
+            return null;
+        }
     }
 }
