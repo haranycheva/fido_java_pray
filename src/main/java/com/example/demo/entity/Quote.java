@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,9 +12,13 @@ public class Quote{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Author cannot be blank")
+    @Size(max = 100, message = "Max length of author is 100 characters")
     @Column(name = "author", nullable = false)
     private String author;
 
+    @NotBlank(message = "Text cannot be blank, fill the quote")
+    @Size(max = 1000, message = "Max length of quote is 1000 characters")
     @Column(name = "text", nullable = false)
     private String text;
 

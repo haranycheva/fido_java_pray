@@ -20,6 +20,8 @@ import com.example.demo.entity.Quote;
 import com.example.demo.repository.QuoteRepository;
 import com.example.demo.service.QuoteService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/quotes")
 public class QuoteController {
@@ -30,7 +32,7 @@ public class QuoteController {
     }
 
     @PostMapping
-    public ResponseEntity<Quote> createQuote(@RequestBody Quote quoteRequest) {
+    public ResponseEntity<Quote> createQuote(@Valid @RequestBody Quote quoteRequest) {
         Quote savedQuote = quoteService.createQuote(quoteRequest);
         return ResponseEntity.ok(savedQuote);
     }
