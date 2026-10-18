@@ -1,8 +1,8 @@
-## Project info
+# Project info
 
 A Spring Boot RESTful web service for creating, reading, updating, deleting, and searching quotes with pagination, validation, and Swagger OpenAPI 3 documentation.
 
-## Getting Started
+# Getting Started
 
 1. Clone the repository
 
@@ -13,6 +13,21 @@ A Spring Boot RESTful web service for creating, reading, updating, deleting, and
 
 2. Build the project
 
+## Environment Setup
+
+Before running the application, set up the required environment variables or create an `application-local.properties` file in `src/main/resources/`:
+
+```properties
+DB_URL=jdbc:postgresql://<HOST>:5432/postgres
+DB_USERNAME=<YOUR_DB_USER>
+DB_PASSWORD=<YOUR_DB_PASSWORD>
+
+-- Local development options
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+
+## Build the project
 `./mvnw clean package -DskipTests`
 
 
