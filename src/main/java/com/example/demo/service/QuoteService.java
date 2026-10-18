@@ -32,4 +32,12 @@ public class QuoteService {
     public Quote getQuoteById(Long id) {
         return quoteRepository.findById(id).orElse(null);
     }
+    
+    public boolean deleteQuote(Long id) {
+        if (quoteRepository.existsById(id)) {
+            quoteRepository.deleteById(id);
+            return true;
+        }
+        return false;
+    }
 }
