@@ -28,4 +28,8 @@ public class QuoteService {
         }
         return quoteRepository.findAll(pageable);
     }
+
+    public Quote getQuoteById(Long id) {
+        return quoteRepository.findById(id).orElse(null);
+    }
 }
